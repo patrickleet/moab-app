@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
 import { schema, resolvers } from './schema';
-import { iHeartRadioConnector } from './iHeartRadio/connector';
+import { IHeartRadioConnector } from './iHeartRadio/connector';
 import { Artists } from './iHeartRadio/models';
 
 dotenv.config({ silent: true });
@@ -37,12 +37,12 @@ app.use('/graphql', apolloExpress((req) => {
     throw new Error('Query too large.');
   }
 
-  const ihrConnector = new iHeartRadioConnector();
+  const iHeartRadioConnector = new IHeartRadioConnector();
 
   return {
     schema: executableSchema,
     context: {
-      Artists: new Artists({ connector: ihrConnector })
+      Artists: new Artists({ connector: iHeartRadioConnector }),
     },
   };
 }));

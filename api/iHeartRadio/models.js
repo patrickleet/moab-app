@@ -8,7 +8,7 @@ export class Artists {
 
   search(keywords) {
     const query = {
-      keywords: keywords,
+      keywords,
       queryTrack: false,
       queryBundle: false,
       queryArtist: true,
@@ -17,9 +17,9 @@ export class Artists {
       queryTalkShow: false,
       queryTalkTheme: false,
       queryKeyword: false,
-      countryCode: 'US'
+      countryCode: 'US',
     };
-    log.info('Searching for artists by keywords', {keywords});
+    log.info('Searching for artists by keywords', { keywords });
     return this.connector.get(`/catalog/searchAll?${querystring.stringify(query)}`);
   }
 }

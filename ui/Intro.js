@@ -4,19 +4,19 @@ import Search from './Search';
 import logoImg from '../images/logo-white.png';
 import bg from '../images/mic_bg.jpg';
 
-const Intro = ({dispatch, styles}) => {
+const Intro = ({ dispatch, styles }) => {
   return (
     <div className={styles.intro}>
-      <div className={styles.bgOverlay}/>
+      <div className={styles.bgOverlay} />
       <div className={styles.banner}>
         <h1 className={styles.bannerTitle}>
-          <img className={styles.logo} src={logoImg} alt="iHeartRadio"/>
+          <img className={styles.logo} src={logoImg} alt="iHeartRadio" />
         </h1>
-        <Search dispatch={dispatch}/>
+        <Search dispatch={dispatch} />
       </div>
     </div>
   );
-}
+};
 
 const intro = props => ({
   backgroundColor: '#000',
@@ -26,7 +26,7 @@ const intro = props => ({
   color: '#fff',
   height: 300,
   position: 'relative',
-})
+});
 
 const bgOverlay = props => ({
   position: 'absolute',
@@ -36,7 +36,7 @@ const bgOverlay = props => ({
   bottom: 0,
   zIndex: 0,
   backgroundColor: 'rgba(0,0,0,.5)',
-})
+});
 
 const banner = props => ({
   position: 'absolute',
@@ -46,7 +46,7 @@ const banner = props => ({
   bottom: 0,
   zIndex: 1,
   textAlign: 'center',
-})
+});
 
 const bannerTitle = props => ({
   margin: 0,
@@ -55,7 +55,7 @@ const bannerTitle = props => ({
   fontWeight: 500,
   fontSize: '4em',
   lineHeight: '1em',
-})
+});
 
 const bannerDesc = props => ({
   padding: 0,
@@ -63,11 +63,11 @@ const bannerDesc = props => ({
   fontSize: '1.75em',
   fontWeight: 300,
   margin: 0,
-})
+});
 
 const logo = props => ({
   maxWidth: '100%',
-})
+});
 
 const mapStylesToProps = props => renderer => ({
   intro: renderer.renderRule(intro),
@@ -75,7 +75,7 @@ const mapStylesToProps = props => renderer => ({
   banner: renderer.renderRule(banner),
   bannerTitle: renderer.renderRule(bannerTitle),
   bannerDesc: renderer.renderRule(bannerDesc),
-  logo: renderer.renderRule(logo)
-})
+  logo: renderer.renderRule(logo),
+});
 
-export default connect(mapStylesToProps)(Intro)
+export default connect(mapStylesToProps)(Intro);

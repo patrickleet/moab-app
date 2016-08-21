@@ -1,5 +1,3 @@
-import { property } from 'lodash';
-
 export const schema = [`
 type Artist {
   artistName: String!
@@ -8,5 +6,5 @@ type Artist {
 `];
 
 export const resolvers = {
-  Artist: {}
+  Artist: {},
 };

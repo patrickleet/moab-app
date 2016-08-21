@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Intro from './Intro';
 import Artists from './Artists';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 // TODO:
 // should probaly refactor connect to a container,
@@ -12,13 +12,13 @@ export default class Home extends Component {
   render() {
     const {
       dispatch,
-      keywords
+      keywords,
     } = this.props;
 
     return (
       <div>
-        <Intro dispatch={dispatch}/>
-        <Artists keywords={keywords}/>
+        <Intro dispatch={dispatch} />
+        <Artists keywords={keywords} />
       </div>
     );
   }
@@ -26,6 +26,6 @@ export default class Home extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    keywords: state.search.keywords
+    keywords: state.search.keywords,
   };
 }

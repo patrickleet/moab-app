@@ -17,13 +17,13 @@ export default (fontNode) => {
       unit(),
       lvha(),
       validator(),
-      logger({ logMetaData: true })
+      logger({ logMetaData: true }),
     ],
     enhancers: [
       perf(),
       beautifier(),
-      fontRenderer(fontNode)
-    ]
+      fontRenderer(fontNode),
+    ],
   });
 
   renderer.renderStatic({
@@ -31,12 +31,12 @@ export default (fontNode) => {
     height: '100%',
     margin: 0,
     padding: 0,
-    fontFamily: 'Lato'
+    fontFamily: 'Lato',
   }, 'html,body,#app');
   renderer.renderStatic({
-    outline: 'none'
+    outline: 'none',
   }, '*:focus');
-  renderer.renderFont('Lato', [ 'https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff' ]);
+  renderer.renderFont('Lato', ['https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff']);
 
   return renderer;
 };

@@ -1,6 +1,8 @@
 import { merge } from 'lodash';
-import { schema as iHeartRadioSchema, resolvers as iHeartRadioResolvers } from './iHeartRadio/schema';
-import log from 'llog';
+import {
+  schema as iHeartRadioSchema,
+  resolvers as iHeartRadioResolvers,
+} from './iHeartRadio/schema';
 
 const rootSchema = [`
 type Query {
@@ -14,11 +16,11 @@ schema {
 
 const rootResolvers = {
   Query: {
-    artists(_, {keywords, offset, limit}, context) {
+    artists(_, { keywords, offset, limit }, context) {
       const protectedLimit = (limit < 1 || limit > 10) ? 10 : limit;
-      return context.Artists.search(keywords, offset, limit);
-    }
-  }
+      return context.Artists.search(keywords, offset, protectedLimit);
+    },
+  },
 };
 
 export const schema = [...rootSchema, ...iHeartRadioSchema];

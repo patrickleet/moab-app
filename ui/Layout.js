@@ -7,7 +7,7 @@ function Layout({ children, params, location }) {
       <div>
         {children}
       </div>
-      <Footer company="iHeartRadio" backgroundColor="#000"/>
+      <Footer company="iHeartRadio" backgroundColor="#000" />
     </div>
   );
 }
