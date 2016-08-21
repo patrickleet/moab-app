@@ -60,3 +60,9 @@ Try entering the following query and variables!
 - Babel - enables es6 as well as es7 decorators
 - Redux - flux implementation
 - Fela.js - styling
+
+## Build production bundle
+
+```
+npm run build
+```
