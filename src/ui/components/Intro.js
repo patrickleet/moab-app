@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-fela';
 import Search from './Search';
-import logoImg from '../images/logo-white.png';
-import bg from '../images/mic_bg.jpg';
+import logoImg from '../../../assets/images/logo-white.png';
+import bg from '../../../assets/images/mic_bg.jpg';
 
-const Intro = ({ dispatch, styles }) => {
+const Intro = ({ dispatch, styles, keywords }) => {
   return (
     <div className={styles.intro}>
       <div className={styles.bgOverlay} />
       <div className={styles.banner}>
         <h1 className={styles.bannerTitle}>
-          <img className={styles.logo} src={logoImg} alt="iHeartRadio" />
+          <img className={styles.logo} src={logoImg} alt="moabApp" />
         </h1>
-        <Search dispatch={dispatch} />
+        <Search dispatch={dispatch} keywords={keywords}/>
       </div>
     </div>
   );

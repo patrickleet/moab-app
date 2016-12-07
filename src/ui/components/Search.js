@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-fela';
 import autobind from 'autobind-decorator';
-import { search } from '../redux/search';
+import { search } from '../../redux/search';
 import DebounceInput from 'react-debounce-input';
 
 class Search extends Component {
 
   @autobind
   onChange(event) {
-    const { dispatch } = this.props;
-    dispatch(search(event.target.value));
+    const { dispatch } = this.props
+    dispatch(search(event.target.value))
   }
 
   render() {
-    const { styles } = this.props;
+    const { styles, keywords } = this.props
+
     return (
       <DebounceInput
         className={styles.input}
@@ -22,6 +23,7 @@ class Search extends Component {
         minLength={1}
         debounceTimeout={300}
         onChange={this.onChange}
+        value={keywords}
       />
     );
   }

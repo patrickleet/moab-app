@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 
 function Layout({ children, params, location }) {
   return (
@@ -7,7 +7,7 @@ function Layout({ children, params, location }) {
       <div>
         {children}
       </div>
-      <Footer company="iHeartRadio" backgroundColor="#000" />
+      <Footer company="RateBeer" backgroundColor="#000" />
     </div>
   );
 }

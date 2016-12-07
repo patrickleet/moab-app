@@ -3,9 +3,9 @@ const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './ui/index.js',
+  entry: './src/ui/index.js',
   output: {
-    path: 'api/dist/',
+    path: 'dist/',
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -32,7 +32,7 @@ module.exports = {
     }
     }),
     new HtmlWebpackPlugin({
-      template: 'ui/index.html'
+      template: 'src/ui/index.html'
     }),
     new webpack.optimize.CommonsChunkPlugin('common.js'),
     new webpack.optimize.DedupePlugin(),

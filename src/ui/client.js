@@ -1,11 +1,14 @@
 // React
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
 // Apollo Client
-import ApolloClient, { createNetworkInterface, addTypename } from 'apollo-client';
+import { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import { Client } from 'subscriptions-transport-ws';
+
+import * as ReactGA from 'react-ga';
 
 // Fela.js styling
 import { Provider as StyleProvider } from 'react-fela';
@@ -17,28 +20,45 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import search from '../redux/search';
 
 // Polyfill fetch
-import 'whatwg-fetch';
+import 'isomorphic-fetch';
 
-// Views
-import Layout from './Layout';
-import Home from './Home';
+// A Routes file is a good shared entry-point between client and server
+import routes from './routes'
+import createApolloClient from './helpers/create-apollo-client';
+import addGraphQLSubscriptions from './helpers/subscriptions';
 
+const wsClient = new Client('ws://localhost:8080');
 // configure fela.js
 const mountNode = document.getElementById('stylesheet');
 const fontMountNode = document.getElementById('font-stylesheet');
 const renderer = createRenderer(fontMountNode);
 
-// Initialize ApolloClient
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface('/graphql'),
-  queryTransformer: addTypename,
-  dataIdFromObject: (result) => {
-    if (result.id && result.__typename) { // eslint-disable-line no-underscore-dangle
-      return result.__typename + result.id; // eslint-disable-line no-underscore-dangle
-    }
-    return null;
+const networkInterface = createNetworkInterface({
+  uri: '/graphql',
+  opts: {
+    credentials: 'same-origin',
   },
-  shouldBatch: true,
+  transportBatching: true,
+});
+
+const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(
+  networkInterface,
+  wsClient,
+);
+
+// Initialize Analytics
+ReactGA.initialize('XXX');
+
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+}
+
+// Initialize ApolloClient
+const client = createApolloClient({
+  networkInterface: networkInterfaceWithSubscriptions,
+  initialState: window.__APOLLO_STATE__, // eslint-disable-line no-underscore-dangle
+  ssrForceFetchDelay: 100,
 });
 
 // use combine reducers to integrate apollo with other reducers and hook up redux dev tools
@@ -61,12 +81,10 @@ render((
   <StyleProvider renderer={renderer} mountNode={mountNode}>
     <ApolloProvider store={store} client={client}>
 
-        <Router history={history}>
-          <Route path="/" component={Layout}>
-            <IndexRoute component={Home} />
-          </Route>
+        <Router history={history} onUpdate={logPageView}>
+          {routes}
         </Router>
 
     </ApolloProvider>
   </StyleProvider>
-), document.getElementById('root'));
+), document.getElementById('content'));

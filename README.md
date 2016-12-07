@@ -1,8 +1,8 @@
-# iHeartRadio Artists
+# moabApp Artists
 
 Demonstrates:
 
-1. GraphQL schema, resolvers, models, and connectors to read from iHeartRadio REST API
+1. GraphQL schema, resolvers, models, and connectors to read from moabApp REST API
 2. Web server using Express, and Apollo Server
 3. React app with Redux, React Router, and Apollo Client
 

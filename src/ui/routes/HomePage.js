@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Intro from './Intro';
-import Artists from './Artists';
+import Intro from '../components/Intro';
+import Artists from '../components/Artists';
 import { connect } from 'react-redux';
 
 // TODO:
@@ -8,24 +8,26 @@ import { connect } from 'react-redux';
 // and put that in Layout
 
 @connect(mapStateToProps)
-export default class Home extends Component {
+export default class HomePage extends Component {
   render() {
     const {
       dispatch,
       keywords,
-    } = this.props;
+    } = this.props
 
     return (
       <div>
-        <Intro dispatch={dispatch} />
+        <Intro dispatch={dispatch} keywords={keywords} />
         <Artists keywords={keywords} />
       </div>
-    );
+    )
   }
 }
 
 function mapStateToProps(state, props) {
+  const location = props.location
+
   return {
-    keywords: state.search.keywords,
-  };
+    keywords: state.search.keywords || location.query.keywords
+  }
 }
