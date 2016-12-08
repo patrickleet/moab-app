@@ -1,9 +1,9 @@
-# moabApp Artists
+# Ninsaki
 
 Demonstrates:
 
-1. GraphQL schema, resolvers, models, and connectors to read from moabApp REST API
-2. Web server using Express, and Apollo Server
+1. GraphQL schema, resolvers, models, and connectors to read from iHeartRadio REST API
+2. Web server using Express, with SSR
 3. React app with Redux, React Router, and Apollo Client
 
 ## Running the app

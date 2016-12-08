@@ -4,14 +4,14 @@ import React, { PropTypes } from 'react';
 
 // XXX: production setup?
 const basePort = process.env.PORT || 3000;
-const scriptUrl = `http://localhost:${basePort + 20}/bundle.js`;
+const scriptUrl = `http://localhost:${basePort + 20}/build/bundle.js`;
 
 const Html = ({ assets, content, state, css, fonts }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <style id="stylesheet" dangerouslySetInnerHTML={{ __html: css }}></style>
+      <style id="stylesheet" dangerouslySetInnerHTML={{ __html: css.replace(" ", '') }}></style>
       <style id="font-stylesheet" dangerouslySetInnerHTML={{ __html: fonts }}></style>
       <title>Ninsaki SSR</title>
     </head>

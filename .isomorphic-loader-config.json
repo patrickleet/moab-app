@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "version": "1.6.0",
+  "timestamp": 1481214678051,
+  "context": "",
+  "output": {
+    "path": "/",
+    "filename": "bundle.js",
+    "publicPath": "/build/"
+  },
+  "assets": {
+    "marked": {
+      "assets/images/logo-white.png": "508aaeed25e40622317ee06bf5acccf8.png",
+      "assets/images/mic_bg.jpg": "5cbe2154009c8b89b060b772fc66e0b1.jpg"
+    },
+    "chunks": {
+      "main": [
+        "bundle.js",
+        "bundle.js.map"
+      ]
+    }
+  },
+  "webpackDev": {
+    "skipSetEnv": false,
+    "url": "http://localhost:3020",
+    "addUrl": false
+  },
+  "isWebpackDev": true,
+  "assetsFile": "/isomorphic-assets.json"
+}

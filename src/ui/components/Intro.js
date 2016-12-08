@@ -10,7 +10,7 @@ const Intro = ({ dispatch, styles, keywords }) => {
       <div className={styles.bgOverlay} />
       <div className={styles.banner}>
         <h1 className={styles.bannerTitle}>
-          <img className={styles.logo} src={logoImg} alt="moabApp" />
+          <img className={styles.logo} src={logoImg} alt="Ninsaki" />
         </h1>
         <Search dispatch={dispatch} keywords={keywords}/>
       </div>

@@ -4,7 +4,7 @@
   "description": "app boilerplate with react web and native, redux, apollo, ssr, webpack, code splitting",
   "main": "src/index.js",
   "scripts": {
-    "start-app-client": "webpack-dev-server -d --hot --inline --config ./webpack/webpack.config.js --port 3020 --colors --display-error-details",
+    "start-app-client": "webpack-dev-server -d --hot --inline --config ./webpack/webpack.config.js --port 3020 --colors --no-info",
     "start-app-server": "nodemon src/ui/start-server.js --watch ./build/server --exec babel-node",
     "start": "concurrently \"npm run start-app-client\" \"npm run start-app-server\"",
     "lint": "eslint src",
@@ -62,6 +62,7 @@
     "graphql-tag": "^0.1.7",
     "graphql-tools": "^0.6.2",
     "isomorphic-fetch": "^2.2.1",
+    "isomorphic-loader": "^1.6.0",
     "react": "^15.0.2",
     "react-addons-update": "^15.2.1",
     "react-apollo": "^0.4.4",
