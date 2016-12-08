@@ -27,7 +27,7 @@ import routes from './routes'
 import createApolloClient from './helpers/create-apollo-client';
 import addGraphQLSubscriptions from './helpers/subscriptions';
 
-const wsClient = new Client('ws://localhost:8080');
+const wsClient = new Client('ws://localhost:3000');
 // configure fela.js
 const mountNode = document.getElementById('stylesheet');
 const fontMountNode = document.getElementById('font-stylesheet');

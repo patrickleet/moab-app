@@ -13,6 +13,8 @@ const Html = ({ assets, content, state, css, fonts }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <style id="stylesheet" dangerouslySetInnerHTML={{ __html: css.replace(" ", '') }}></style>
       <style id="font-stylesheet" dangerouslySetInnerHTML={{ __html: fonts }}></style>
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       <title>Ninsaki SSR</title>
     </head>
     <body>
