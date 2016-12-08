@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-fela';
 import Search from './Search';
-import logoImg from '../../../assets/images/logo-white.png';
-import bg from '../../../assets/images/mic_bg.jpg';
+
+const logoImg = '/static/images/logo-white.png';
+const bg = '/static/images/mic_bg.jpg';
 
 const Intro = ({ dispatch, styles, keywords }) => {
   return (

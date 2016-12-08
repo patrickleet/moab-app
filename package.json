@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start-app-client": "webpack-dev-server -d --hot --inline --config ./webpack/webpack.config.js --port 3020 --colors --no-info",
-    "start-app-server": "nodemon src/ui/start-server.js --watch ./build/server --exec babel-node",
+    "start-app-server": "nodemon src/ui/server.js --watch src/ui --exec babel-node",
     "start": "concurrently \"npm run start-app-client\" \"npm run start-app-server\"",
     "lint": "eslint src",
     "build": "webpack -p --progress --config ./webpack.production.config.js",
@@ -62,7 +62,6 @@
     "graphql-tag": "^0.1.7",
     "graphql-tools": "^0.6.2",
     "isomorphic-fetch": "^2.2.1",
-    "isomorphic-loader": "^1.6.0",
     "react": "^15.0.2",
     "react-addons-update": "^15.2.1",
     "react-apollo": "^0.4.4",
@@ -74,9 +73,8 @@
     "react-router": "^2.4.1",
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
-    "subscriptions-transport-ws": "^0.3.1",
-    "universal-webpack": "^0.1.41",
-    "webpack-isomorphic-tools": "^2.6.4"
+    "serve-favicon": "^2.3.2",
+    "subscriptions-transport-ws": "^0.3.1"
   },
   "license": "MIT"
 }

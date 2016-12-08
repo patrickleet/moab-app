@@ -33,7 +33,7 @@ class Artists extends Component {
             const imageUrl = `http://iscale.iheart.com/catalog/artist/${artist.artistId}?ops=fit(250,0)`;
 
             return (
-              <div className={styles.col} key={artist.artistName}>
+              <div className={styles.col} key={artist.artistName.replace(' ', '')}>
                 <img className={styles.artistImg} src={imageUrl} />
                 <div className={styles.name}>{artist.artistName}</div>
                 {artist.description ? <div className={styles.desc}>{artist.description}</div> : null}
@@ -42,7 +42,7 @@ class Artists extends Component {
           })
           : 
           <div className={styles.centerMessageFill}>
-              <span>No Result</span>
+              <span>No Results</span>
           </div>}
         </div>
       </section>

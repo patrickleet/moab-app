@@ -1,5 +1,6 @@
 // Express
 import Express from 'express';
+import favicon from 'serve-favicon';
 
 // React
 import React from 'react';
@@ -34,7 +35,8 @@ const apiHost = `http://localhost:${basePort + 10}`;
 const apiUrl = `${apiHost}/graphql`;
 
 const app = new Express();
-app.use(Express.static(path.join(__dirname, '../../', 'build/assets')))
+app.use('/static', Express.static('static'));
+app.use(favicon(`${__dirname}/../../static/favicon.ico`));
 
 const apiProxy = proxy({ target: apiHost });
 app.use('/graphql', apiProxy);
