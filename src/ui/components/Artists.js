@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-fela';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import shortid from 'shortid'
 
 const SEARCH_ARTISTS = gql`
   query Artists($keywords: String!, $offset: Int, $limit: Int) {
@@ -33,7 +34,7 @@ class Artists extends Component {
             const imageUrl = `http://iscale.iheart.com/catalog/artist/${artist.artistId}?ops=fit(250,0)`;
 
             return (
-              <div className={styles.col} key={artist.artistName.replace(' ', '')}>
+              <div className={styles.col} key={`${artist.artistName.replace(' ', '')}-${shortid.generate()}`}>
                 <img className={styles.artistImg} src={imageUrl} />
                 <div className={styles.name}>{artist.artistName}</div>
                 {artist.description ? <div className={styles.desc}>{artist.description}</div> : null}
