@@ -1,5 +1,7 @@
 # Ninsaki
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/patrickleet/moab-app.svg?token=449f10cfd40b47927dc4ff423a8a65d03ff33b25491d1318c1b11baa51313b43&ts=1520715073612)](https://greenkeeper.io/)
+
 Demonstrates:
 
 1. GraphQL schema, resolvers, models, and connectors to read from iHeartRadio REST API
